@@ -76,10 +76,10 @@ export default function Navbar() {
                 <button
                   type="button"
                   onClick={() => setDropdownOpen((prev) => !prev)}
-                  className="flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-secondary/10  text-black hover:border-secondary transition-all duration-200 cursor-pointer"
+                  className="flex items-center gap-2.5 px-3.5 py-1.5 rounded-full  text-black  cursor-pointer"
                   aria-expanded={dropdownOpen}
                 >
-                  <div className="w-8 h-8 rounded-full bg-secondary text-primary flex items-center justify-center font-bold text-sm hover:bg-white transition-all duration-300 ease-out">
+                  <div className="w-8 h-8 rounded-full bg-secondary text-primary flex items-center justify-center font-bold text-sm hover:bg-primary hover:text-white transition-all duration-300 ease-out">
                     {user?.name ? user.name.charAt(0).toUpperCase() : <User className="w-4 h-4" />}
                   </div>
                 </button>
@@ -89,11 +89,11 @@ export default function Navbar() {
                   <div className="absolute right-0 mt-2.5 w-72 rounded-2xl bg-[#080808] border border-secondary/30 shadow-[0_10px_35px_rgba(0,0,0,0.8)] backdrop-blur-xl p-4 space-y-4 animate-in fade-in zoom-in-95 duration-200 z-50">
                     {/* User Info Header */}
                     <div className="flex items-center gap-3 pb-3 border-b border-white/10">
-                      <div className="w-11 h-11 rounded-2xl bg-secondary/20 border border-secondary/40 text-secondary flex items-center justify-center font-bold text-lg">
+                      <div className="w-11 h-11 rounded-2xl bg-secondary/20 border border-secondary/40 text-background flex items-center justify-center font-bold text-lg">
                         {user?.name ? user.name.charAt(0).toUpperCase() : <User className="w-5 h-5" />}
                       </div>
                       <div className="flex-1 min-w-0">
-                        <p className="font-display text-lg text-black uppercase truncate tracking-wide">
+                        <p className="font-display text-lg text-white uppercase truncate tracking-wide">
                           {user?.name || "User Profile"}
                         </p>
                         <p className="font-body text-xs text-gray-400 truncate">

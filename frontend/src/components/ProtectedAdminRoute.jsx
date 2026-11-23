@@ -15,9 +15,9 @@ export default function ProtectedAdminRoute({ children }) {
 
   if (loading) {
     return (
-      <div className="min-h-[70vh] flex flex-col items-center justify-center p-8">
+      <div className="min-h-[70vh] flex flex-col items-center justify-center p-8 bg-background">
         <div className="w-10 h-10 border-4 border-secondary border-t-transparent rounded-full animate-spin mb-4"></div>
-        <p className="font-body text-gray-400 text-sm">Verifying admin credentials...</p>
+        <p className="font-body text-[#151514]/70 text-sm">Verifying admin credentials...</p>
       </div>
     );
   }

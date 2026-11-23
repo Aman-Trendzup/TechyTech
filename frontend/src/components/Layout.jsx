@@ -9,10 +9,11 @@ export default function Layout({ children }) {
     location.pathname === '/services' ||
     location.pathname === '/contact' ||
     location.pathname === '/about' ||
-    location.pathname === '/products';
+    location.pathname === '/products' ||
+    location.pathname.startsWith('/products/');
 
   return (
-    <div className="min-h-screen flex flex-col bg-primary text-gray-100 font-body antialiased selection:bg-secondary selection:text-primary">
+    <div className="min-h-screen flex flex-col bg-background text-[#151514] font-body antialiased selection:bg-secondary selection:text-primary">
       <Navbar />
       <main className={`flex-1 w-full ${isFullBleed ? '' : 'max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8'}`}>
         {children || <Outlet />}

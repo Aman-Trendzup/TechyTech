@@ -1,6 +1,6 @@
-﻿import React, { useState } from "react";
+import React, { useState } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
-import { Eye, EyeOff, Sparkles, Mail, Lock, ArrowRight } from "lucide-react";
+import { Eye, EyeOff, Mail, Lock } from "lucide-react";
 import { loginUser } from "@/api/authApi";
 import { useAuth } from "@/context";
 
@@ -41,42 +41,33 @@ const Login = () => {
   };
 
   return (
-    <div className="relative min-h-screen w-full overflow-hidden bg-primary text-black select-none flex items-center justify-center p-4 sm:p-6 lg:p-8">
-      {/* Background Grid Pattern (10 cols on mobile, 20 cols on desktop) */}
-      <div className="pointer-events-none absolute inset-0 z-0">
-        <div
-          className="absolute inset-0 opacity-[0.16] [background-size:calc(100%/10)_calc(100vw/10)] md:[background-size:calc(100%/20)_calc(100vw/20)]"
-          style={{
-            backgroundImage: `
-              linear-gradient(to right, gray 1px, transparent 1px),
-              linear-gradient(to bottom, gray 1px, transparent 1px)
-            `,
-            backgroundPosition: "top left",
-          }}
-        />
-        {/* Ambient atmospheric glow */}
-        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-secondary/5 blur-[140px] rounded-full pointer-events-none" />
-      </div>
-
+    <div className="relative min-h-screen w-full overflow-hidden bg-background text-[#151514] select-none flex items-center justify-center p-4 sm:p-6 lg:p-8">
       {/* Main Login Card Container */}
       <div className="relative z-10 w-full max-w-md">
-
         {/* Card Form */}
-        <div className="rounded-2xl md:rounded-3xl bg-primary/70 backdrop-blur-xl border border-white/10 hover:border-secondary/40 p-7 sm:p-9 shadow-[0_0_40px_rgba(0,0,0,0.6)] transition-all duration-300">
-          <div className="mb-6 text-center">
-            <h1 className="font-display text-3xl sm:text-4xl text-black uppercase tracking-wide">
-              Welcome Back
+        <div className="rounded-2xl bg-white/70 hover:bg-white border border-[#ded8d0] p-7 sm:p-10 shadow-sm transition-all duration-300">
+          <div className="mb-8 text-center space-y-2">
+            <div className="flex items-center justify-center gap-2 mb-2">
+              <span className="text-[11px] font-bold tracking-[0.2em] uppercase text-[#151514]">
+                WELCOME BACK
+              </span>
+            </div>
+            <h1 className="font-display text-4xl sm:text-5xl text-[#151514] uppercase tracking-wide">
+              Login
             </h1>
+            <p className="font-body text-xs sm:text-sm text-[#151514]/70">
+              Enter your credentials to access your account
+            </p>
           </div>
 
           <form onSubmit={handleLogin} className="space-y-5" noValidate>
             {/* Email Field */}
             <div className="space-y-1.5">
-              <label className="block font-body text-xs uppercase tracking-wider text-gray-300 font-semibold">
-                Email Address
+              <label className="block font-body text-xs uppercase tracking-wider text-[#151514] font-semibold">
+                Email Address <span className="text-secondary">*</span>
               </label>
               <div className="relative">
-                <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-gray-500">
+                <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-[#151514]/40">
                   <Mail className="w-4 h-4" />
                 </div>
                 <input
@@ -85,7 +76,7 @@ const Login = () => {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
-                  className="w-full pl-10 pr-4 py-3 rounded-xl bg-black/40 border border-white/15 focus:border-secondary focus:ring-1 focus:ring-secondary/50 text-black placeholder-gray-500 text-sm font-body outline-none transition-all duration-200"
+                  className="w-full pl-10 pr-4 py-3.5 rounded-xl bg-white border border-[#ded8d0] focus:border-secondary focus:ring-1 focus:ring-secondary/50 text-[#151514] placeholder-[#151514]/40 text-sm font-body outline-none transition-all"
                 />
               </div>
             </div>
@@ -93,12 +84,12 @@ const Login = () => {
             {/* Password Field */}
             <div className="space-y-1.5">
               <div className="flex items-center justify-between">
-                <label className="block font-body text-xs uppercase tracking-wider text-gray-300 font-semibold">
-                  Password
+                <label className="block font-body text-xs uppercase tracking-wider text-[#151514] font-semibold">
+                  Password <span className="text-secondary">*</span>
                 </label>
               </div>
               <div className="relative">
-                <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-gray-500">
+                <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-[#151514]/40">
                   <Lock className="w-4 h-4" />
                 </div>
                 <input
@@ -107,11 +98,11 @@ const Login = () => {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   required
-                  className="w-full pl-10 pr-11 py-3 rounded-xl bg-black/40 border border-white/15 focus:border-secondary focus:ring-1 focus:ring-secondary/50 text-black placeholder-gray-500 text-sm font-body outline-none transition-all duration-200"
+                  className="w-full pl-10 pr-11 py-3.5 rounded-xl bg-white border border-[#ded8d0] focus:border-secondary focus:ring-1 focus:ring-secondary/50 text-[#151514] placeholder-[#151514]/40 text-sm font-body outline-none transition-all"
                 />
                 <button
                   type="button"
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-secondary transition-colors p-1"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-[#151514]/50 hover:text-secondary transition-colors p-1"
                   onClick={() => setShowPassword((prev) => !prev)}
                   aria-label={showPassword ? "Hide password" : "Show password"}
                 >
@@ -122,7 +113,7 @@ const Login = () => {
 
             {/* Error Message */}
             {error && (
-              <div className="p-3 rounded-xl bg-red-500/10 border border-red-500/30 text-xs text-red-400 font-body text-center">
+              <div className="p-3.5 rounded-xl bg-red-500/10 border border-red-500/30 text-xs text-red-600 font-body text-center">
                 {error}
               </div>
             )}
@@ -132,34 +123,31 @@ const Login = () => {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full font-display font-bold text-md rounded-md tracking-[0.10em] uppercase text-primary bg-secondary border-secondary/50 py-3.5  hover:scale-[1.02]  hover:bg-white transition-all duration-300 ease-out cursor-pointer"
+                className="w-full font-body font-medium text-sm rounded-full py-3.5 bg-[#151514] text-[#f4f0eb] hover:bg-secondary hover:text-primary transition-all duration-300 ease-out cursor-pointer shadow-sm active:scale-95 disabled:opacity-60"
               >
                 {isSubmitting ? (
-                  <span className="inline-flex items-center gap-2">
-                    <span className="w-4 h-4 border-2 border-white/20 border-t-white rounded-full animate-spin"></span>
+                  <span className="inline-flex items-center justify-center gap-2">
+                    <span className="w-4 h-4 border-2 border-[#f4f0eb]/20 border-t-[#f4f0eb] rounded-full animate-spin"></span>
                     Logging in...
                   </span>
                 ) : (
-                  <span className="inline-flex items-center gap-2">
-                    Login
-                  </span>
+                  <span>Login</span>
                 )}
               </button>
             </div>
 
             {/* Redirect to Register */}
-            <p className="text-center font-body text-xs text-gray-400 pt-2">
+            <p className="text-center font-body text-xs text-[#151514]/70 pt-2">
               Don't have an account?{" "}
               <Link
                 to="/register"
-                className="text-secondary font-semibold hover:underline ml-1 inline-flex items-center gap-1 group"
+                className="text-[#151514] font-semibold hover:text-secondary underline ml-1 transition-colors"
               >
                 Create Account
               </Link>
             </p>
           </form>
         </div>
-
       </div>
     </div>
   );

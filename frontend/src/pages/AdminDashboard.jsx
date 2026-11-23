@@ -293,7 +293,7 @@ export default function AdminDashboard() {
   };
 
   return (
-    <div className="min-h-screen py-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <div className="min-h-screen py-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto bg-background text-[#151514]">
       {/* Header section */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-8 border-b border-secondary/20">
         <div>
@@ -302,18 +302,18 @@ export default function AdminDashboard() {
               Admin Dashboard
             </h1>
           </div>
-          <p className="font-body text-gray-400 text-sm">
+          <p className="font-body text-[#151514]/70 text-sm">
             Signed in as <span className="text-black font-medium">{user?.email}</span> (Admin)
           </p>
         </div>
 
         {/* Tab switchers */}
-        <div className="flex flex-wrap items-center gap-2 p-1.5 rounded-2xl bg-white/5 border border-white/10 self-start md:self-auto">
+        <div className="flex flex-wrap items-center gap-2 p-1.5 rounded-2xl bg-white/70 border border-[#ded8d0] self-start md:self-auto">
           <button
             onClick={() => setActiveTab('users')}
             className={`flex items-center gap-2 px-4 py-2.5 rounded-xl font-body text-xs sm:text-sm font-semibold transition-all ${activeTab === 'users'
               ? 'bg-secondary text-primary'
-              : 'text-gray-400 hover:text-black hover:bg-white/5'
+              : 'text-[#151514]/70 hover:text-[#151514] hover:bg-[#eae5df]'
               }`}
           >
             <Users className="w-4 h-4" />
@@ -323,7 +323,7 @@ export default function AdminDashboard() {
             onClick={() => setActiveTab('ebooks')}
             className={`flex items-center gap-2 px-4 py-2.5 rounded-xl font-body text-xs sm:text-sm font-semibold transition-all ${activeTab === 'ebooks'
               ? 'bg-secondary text-primary shadow-[0_0_15px_rgba(238,128,77,0.3)]'
-              : 'text-gray-400 hover:text-black hover:bg-white/5'
+              : 'text-[#151514]/70 hover:text-[#151514] hover:bg-[#eae5df]'
               }`}
           >
             <BookOpen className="w-4 h-4" />
@@ -333,7 +333,7 @@ export default function AdminDashboard() {
             onClick={() => setActiveTab('messages')}
             className={`flex items-center gap-2 px-4 py-2.5 rounded-xl font-body text-xs sm:text-sm font-semibold transition-all ${activeTab === 'messages'
               ? 'bg-secondary text-primary shadow-[0_0_15px_rgba(238,128,77,0.3)]'
-              : 'text-gray-400 hover:text-black hover:bg-white/5'
+              : 'text-[#151514]/70 hover:text-[#151514] hover:bg-[#eae5df]'
               }`}
           >
             <Mail className="w-4 h-4" />
@@ -370,19 +370,19 @@ export default function AdminDashboard() {
                 placeholder="Search user by name or email..."
                 value={userSearch}
                 onChange={(e) => setUserSearch(e.target.value)}
-                className="w-full px-4 py-2.5 pl-10 rounded-xl bg-white/5 border border-white/10 text-black placeholder-gray-500 text-sm focus:outline-none focus:border-secondary transition-all"
+                className="w-full px-4 py-2.5 pl-10 rounded-xl bg-white border border-[#ded8d0] text-[#151514] placeholder-[#151514]/40 text-sm focus:outline-none focus:border-secondary transition-all"
               />
-              <Search className="w-4 h-4 text-gray-400 absolute left-3.5 top-3" />
+              <Search className="w-4 h-4 text-[#151514]/70 absolute left-3.5 top-3" />
             </form>
-            <p className="font-body text-xs text-gray-400 self-end sm:self-center">
+            <p className="font-body text-xs text-[#151514]/70 self-end sm:self-center">
               Total Users: <span className="text-secondary font-semibold">{userPagination.totalUsers}</span>
             </p>
           </div>
 
           {/* Users Table */}
-          <div className="overflow-x-auto rounded-2xl border border-white/10 bg-[#0d0d0d]">
-            <table className="w-full text-left text-sm text-gray-300">
-              <thead className="bg-white/5 text-xs uppercase tracking-wider text-gray-400 border-b border-white/10 font-body">
+          <div className="overflow-x-auto rounded-2xl border border-[#ded8d0] bg-white/70">
+            <table className="w-full text-left text-sm text-[#151514]/80">
+              <thead className="bg-[#eae5df]/50 text-xs uppercase tracking-wider text-[#151514]/70 border-b border-[#ded8d0] font-body">
                 <tr>
                   <th className="px-6 py-4">User</th>
                   <th className="px-6 py-4">Email</th>
@@ -391,40 +391,40 @@ export default function AdminDashboard() {
                   <th className="px-6 py-4 text-right">Actions</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-white/5 font-body">
+              <tbody className="divide-y divide-[#ded8d0]/60 font-body">
                 {usersLoading ? (
                   <tr>
-                    <td colSpan={5} className="text-center py-12 text-gray-400">
+                    <td colSpan={5} className="text-center py-12 text-[#151514]/70">
                       Loading users...
                     </td>
                   </tr>
                 ) : users.length === 0 ? (
                   <tr>
-                    <td colSpan={5} className="text-center py-12 text-gray-400">
+                    <td colSpan={5} className="text-center py-12 text-[#151514]/70">
                       No users found.
                     </td>
                   </tr>
                 ) : (
                   users.map((item) => (
-                    <tr key={item._id} className="hover:bg-white/[0.02] transition-colors">
+                    <tr key={item._id} className="hover:bg-white transition-colors">
                       <td className="px-6 py-4 font-medium text-black flex items-center gap-3">
                         <div className="w-8 h-8 rounded-full bg-secondary/15 text-secondary flex items-center justify-center font-bold text-xs">
                           {item.name ? item.name.charAt(0).toUpperCase() : 'U'}
                         </div>
                         <span>{item.name}</span>
                       </td>
-                      <td className="px-6 py-4 text-gray-400">{item.email}</td>
+                      <td className="px-6 py-4 text-[#151514]/70">{item.email}</td>
                       <td className="px-6 py-4">
                         <span
                           className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold ${item.role === 'admin'
                             ? 'bg-secondary/15 text-secondary border border-secondary/30'
-                            : 'bg-white/10 text-gray-300'
+                            : 'bg-[#eae5df] text-[#151514]/80'
                             }`}
                         >
                           {item.role}
                         </span>
                       </td>
-                      <td className="px-6 py-4 text-gray-400">
+                      <td className="px-6 py-4 text-[#151514]/70">
                         {item.createdAt ? new Date(item.createdAt).toLocaleDateString() : 'N/A'}
                       </td>
                       <td className="px-6 py-4 text-right">
@@ -454,21 +454,21 @@ export default function AdminDashboard() {
 
           {/* User Pagination */}
           <div className="flex items-center justify-between pt-2">
-            <span className="text-xs text-gray-400 font-body">
+            <span className="text-xs text-[#151514]/70 font-body">
               Page {userPage} of {userPagination.totalPages || 1}
             </span>
             <div className="flex items-center gap-2">
               <button
                 disabled={userPage <= 1 || usersLoading}
                 onClick={() => setUserPage((p) => Math.max(1, p - 1))}
-                className="p-2 rounded-xl bg-white/5 border border-white/10 text-gray-300 hover:text-secondary disabled:opacity-40 disabled:hover:text-gray-300 transition-colors"
+                className="p-2 rounded-xl bg-white border border-[#ded8d0] text-[#151514]/80 hover:text-secondary disabled:opacity-40 disabled:hover:text-[#151514]/80 transition-colors"
               >
                 <ChevronLeft className="w-4 h-4" />
               </button>
               <button
                 disabled={userPage >= userPagination.totalPages || usersLoading}
                 onClick={() => setUserPage((p) => p + 1)}
-                className="p-2 rounded-xl bg-white/5 border border-white/10 text-gray-300 hover:text-secondary disabled:opacity-40 disabled:hover:text-gray-300 transition-colors"
+                className="p-2 rounded-xl bg-white border border-[#ded8d0] text-[#151514]/80 hover:text-secondary disabled:opacity-40 disabled:hover:text-[#151514]/80 transition-colors"
               >
                 <ChevronRight className="w-4 h-4" />
               </button>
@@ -487,12 +487,12 @@ export default function AdminDashboard() {
                 placeholder="Search eBook title or slug..."
                 value={ebookSearch}
                 onChange={(e) => setEbookSearch(e.target.value)}
-                className="w-full px-4 py-2.5 pl-10 rounded-xl bg-white/5 border border-white/10 text-black placeholder-gray-500 text-sm focus:outline-none focus:border-secondary transition-all"
+                className="w-full px-4 py-2.5 pl-10 rounded-xl bg-white border border-[#ded8d0] text-[#151514] placeholder-[#151514]/40 text-sm focus:outline-none focus:border-secondary transition-all"
               />
-              <Search className="w-4 h-4 text-gray-400 absolute left-3.5 top-3" />
+              <Search className="w-4 h-4 text-[#151514]/70 absolute left-3.5 top-3" />
             </form>
             <div className="flex items-center gap-4 w-full sm:w-auto justify-between sm:justify-end">
-              <p className="font-body text-xs text-gray-400">
+              <p className="font-body text-xs text-[#151514]/70">
                 Total: <span className="text-secondary font-semibold">{ebookPagination.totalEbooks}</span>
               </p>
               <Link
@@ -506,9 +506,9 @@ export default function AdminDashboard() {
           </div>
 
           {/* eBooks Table */}
-          <div className="overflow-x-auto rounded-2xl border border-white/10 bg-[#0d0d0d]">
-            <table className="w-full text-left text-sm text-gray-300">
-              <thead className="bg-white/5 text-xs uppercase tracking-wider text-gray-400 border-b border-white/10 font-body">
+          <div className="overflow-x-auto rounded-2xl border border-[#ded8d0] bg-white/70">
+            <table className="w-full text-left text-sm text-[#151514]/80">
+              <thead className="bg-[#eae5df]/50 text-xs uppercase tracking-wider text-[#151514]/70 border-b border-[#ded8d0] font-body">
                 <tr>
                   <th className="px-6 py-4">eBook</th>
                   <th className="px-6 py-4">Price</th>
@@ -516,36 +516,36 @@ export default function AdminDashboard() {
                   <th className="px-6 py-4 text-right">Actions</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-white/5 font-body">
+              <tbody className="divide-y divide-[#ded8d0]/60 font-body">
                 {ebooksLoading ? (
                   <tr>
-                    <td colSpan={4} className="text-center py-12 text-gray-400">
+                    <td colSpan={4} className="text-center py-12 text-[#151514]/70">
                       Loading eBooks...
                     </td>
                   </tr>
                 ) : ebooks.length === 0 ? (
                   <tr>
-                    <td colSpan={4} className="text-center py-12 text-gray-400">
+                    <td colSpan={4} className="text-center py-12 text-[#151514]/70">
                       No eBooks published yet. Click "Publish eBook" to add one.
                     </td>
                   </tr>
                 ) : (
                   ebooks.map((item) => (
-                    <tr key={item._id} className="hover:bg-white/[0.02] transition-colors">
+                    <tr key={item._id} className="hover:bg-white transition-colors">
                       <td className="px-6 py-4 font-medium text-black flex items-center gap-3">
                         {item.coverImage?.url ? (
                           <img
                             src={item.coverImage.url}
                             alt={item.title}
-                            className="w-10 h-14 object-cover rounded-lg border border-white/10 bg-black/40"
+                            className="w-10 h-14 object-cover rounded-lg border border-[#ded8d0] bg-[#eae5df]"
                           />
                         ) : (
-                          <div className="w-10 h-14 rounded-lg bg-white/5 flex items-center justify-center text-gray-400">
+                          <div className="w-10 h-14 rounded-lg bg-white flex items-center justify-center text-[#151514]/70">
                             <BookOpen className="w-5 h-5" />
                           </div>
                         )}
                         <div className="min-w-0">
-                          <p className="font-display text-base text-black truncate max-w-md tracking-wider">{item.title}</p>
+                          <p className="font-body text-base text-black truncate max-w-md ">{item.title}</p>
                         </div>
                       </td>
                       <td className="px-6 py-4 font-semibold text-secondary">€{Number(item.price).toFixed(2)}</td>
@@ -563,7 +563,7 @@ export default function AdminDashboard() {
                         <div className="inline-flex items-center gap-1">
                           <button
                             onClick={() => handleViewDetails(item._id)}
-                            className="p-2 rounded-lg text-gray-400 hover:text-secondary hover:bg-white/5 transition-colors"
+                            className="p-2 rounded-lg text-[#151514]/70 hover:text-secondary hover:bg-[#eae5df] transition-colors"
                             title="View eBook Details"
                           >
                             <Eye className="w-4 h-4" />
@@ -593,21 +593,21 @@ export default function AdminDashboard() {
 
           {/* eBook Pagination */}
           <div className="flex items-center justify-between pt-2">
-            <span className="text-xs text-gray-400 font-body">
+            <span className="text-xs text-[#151514]/70 font-body">
               Page {ebookPage} of {ebookPagination.totalPages || 1}
             </span>
             <div className="flex items-center gap-2">
               <button
                 disabled={ebookPage <= 1 || ebooksLoading}
                 onClick={() => setEbookPage((p) => Math.max(1, p - 1))}
-                className="p-2 rounded-xl bg-white/5 border border-white/10 text-gray-300 hover:text-secondary disabled:opacity-40 disabled:hover:text-gray-300 transition-colors"
+                className="p-2 rounded-xl bg-white border border-[#ded8d0] text-[#151514]/80 hover:text-secondary disabled:opacity-40 disabled:hover:text-[#151514]/80 transition-colors"
               >
                 <ChevronLeft className="w-4 h-4" />
               </button>
               <button
                 disabled={ebookPage >= ebookPagination.totalPages || ebooksLoading}
                 onClick={() => setEbookPage((p) => p + 1)}
-                className="p-2 rounded-xl bg-white/5 border border-white/10 text-gray-300 hover:text-secondary disabled:opacity-40 disabled:hover:text-gray-300 transition-colors"
+                className="p-2 rounded-xl bg-white border border-[#ded8d0] text-[#151514]/80 hover:text-secondary disabled:opacity-40 disabled:hover:text-[#151514]/80 transition-colors"
               >
                 <ChevronRight className="w-4 h-4" />
               </button>
@@ -627,16 +627,16 @@ export default function AdminDashboard() {
                 placeholder="Search name, email, subject, content..."
                 value={messageSearch}
                 onChange={(e) => setMessageSearch(e.target.value)}
-                className="w-full px-4 py-2.5 pl-10 rounded-xl bg-white/5 border border-white/10 text-black placeholder-gray-500 text-sm focus:outline-none focus:border-secondary transition-all"
+                className="w-full px-4 py-2.5 pl-10 rounded-xl bg-white border border-[#ded8d0] text-[#151514] placeholder-[#151514]/40 text-sm focus:outline-none focus:border-secondary transition-all"
               />
-              <Search className="w-4 h-4 text-gray-400 absolute left-3.5 top-3" />
+              <Search className="w-4 h-4 text-[#151514]/70 absolute left-3.5 top-3" />
             </form>
           </div>
 
           {/* Messages Table */}
-          <div className="overflow-x-auto rounded-2xl border border-white/10 bg-[#0d0d0d]">
-            <table className="w-full text-left text-sm text-gray-300">
-              <thead className="bg-white/5 text-xs uppercase tracking-wider text-gray-400 border-b border-white/10 font-body">
+          <div className="overflow-x-auto rounded-2xl border border-[#ded8d0] bg-white/70">
+            <table className="w-full text-left text-sm text-[#151514]/80">
+              <thead className="bg-[#eae5df]/50 text-xs uppercase tracking-wider text-[#151514]/70 border-b border-[#ded8d0] font-body">
                 <tr>
                   <th className="px-6 py-4">Sender</th>
                   <th className="px-6 py-4">Subject</th>
@@ -644,31 +644,31 @@ export default function AdminDashboard() {
                   <th className="px-6 py-4 text-right">Actions</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-white/5 font-body">
+              <tbody className="divide-y divide-[#ded8d0]/60 font-body">
                 {messagesLoading ? (
                   <tr>
-                    <td colSpan={4} className="text-center py-12 text-gray-400">
+                    <td colSpan={4} className="text-center py-12 text-[#151514]/70">
                       Loading contact messages...
                     </td>
                   </tr>
                 ) : messages.length === 0 ? (
                   <tr>
-                    <td colSpan={4} className="text-center py-12 text-gray-400">
+                    <td colSpan={4} className="text-center py-12 text-[#151514]/70">
                       No contact messages found.
                     </td>
                   </tr>
                 ) : (
                   messages.map((item) => (
-                    <tr key={item._id} className="hover:bg-white/[0.02] transition-colors">
+                    <tr key={item._id} className="hover:bg-white transition-colors">
                       <td className="px-6 py-4">
                         <div className="font-medium text-black">{item.name}</div>
-                        <div className="text-xs text-gray-400 font-mono mt-0.5">{item.email}</div>
+                        <div className="text-xs text-[#151514]/70 font-mono mt-0.5">{item.email}</div>
                       </td>
                       <td className="px-6 py-4 max-w-sm">
                         <p className="text-black font-medium truncate">{item.subject}</p>
-                        <p className="text-xs text-gray-400 truncate mt-0.5">{item.message}</p>
+                        <p className="text-xs text-[#151514]/70 truncate mt-0.5">{item.message}</p>
                       </td>
-                      <td className="px-6 py-4 text-xs text-gray-400 whitespace-nowrap">
+                      <td className="px-6 py-4 text-xs text-[#151514]/70 whitespace-nowrap">
                         {new Date(item.createdAt).toLocaleDateString(undefined, {
                           year: 'numeric',
                           month: 'short',
@@ -679,7 +679,7 @@ export default function AdminDashboard() {
                         <div className="inline-flex items-center gap-1">
                           <button
                             onClick={() => handleViewMessageDetails(item)}
-                            className="p-2 rounded-lg text-gray-400 hover:text-secondary hover:bg-white/5 transition-colors"
+                            className="p-2 rounded-lg text-[#151514]/70 hover:text-secondary hover:bg-[#eae5df] transition-colors"
                             title="Open Message Details"
                           >
                             <Eye className="w-4 h-4" />
@@ -709,21 +709,21 @@ export default function AdminDashboard() {
 
           {/* Simple Pagination Bar */}
           <div className="flex items-center justify-between pt-2">
-            <span className="text-xs text-gray-400 font-body">
+            <span className="text-xs text-[#151514]/70 font-body">
               Page {messagePage} of {messagePagination.totalPages || 1}
             </span>
             <div className="flex items-center gap-2">
               <button
                 disabled={messagePage <= 1 || messagesLoading}
                 onClick={() => setMessagePage((p) => Math.max(1, p - 1))}
-                className="p-2 rounded-xl bg-white/5 border border-white/10 text-gray-300 hover:text-secondary disabled:opacity-40 disabled:hover:text-gray-300 transition-colors"
+                className="p-2 rounded-xl bg-white border border-[#ded8d0] text-[#151514]/80 hover:text-secondary disabled:opacity-40 disabled:hover:text-[#151514]/80 transition-colors"
               >
                 <ChevronLeft className="w-4 h-4" />
               </button>
               <button
                 disabled={messagePage >= messagePagination.totalPages || messagesLoading}
                 onClick={() => setMessagePage((p) => p + 1)}
-                className="p-2 rounded-xl bg-white/5 border border-white/10 text-gray-300 hover:text-secondary disabled:opacity-40 disabled:hover:text-gray-300 transition-colors"
+                className="p-2 rounded-xl bg-white border border-[#ded8d0] text-[#151514]/80 hover:text-secondary disabled:opacity-40 disabled:hover:text-[#151514]/80 transition-colors"
               >
                 <ChevronRight className="w-4 h-4" />
               </button>
@@ -734,14 +734,14 @@ export default function AdminDashboard() {
 
       {/* MODAL 1: DELETE CONFIRMATION */}
       {deleteModal.open && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-fadeIn">
-          <div className="w-full max-w-md rounded-2xl bg-[#111] border border-white/10 p-6 space-y-4 shadow-2xl">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#eae5df] backdrop-blur-sm animate-fadeIn">
+          <div className="w-full max-w-md rounded-2xl bg-white border border-[#ded8d0] p-6 space-y-4 shadow-2xl">
             <div className="w-12 h-12 rounded-2xl bg-red-500/10 border border-red-500/30 text-red-400 flex items-center justify-center">
               <AlertTriangle className="w-6 h-6" />
             </div>
             <div>
               <h3 className="font-display text-xl text-black">Confirm Deletion</h3>
-              <p className="font-body text-sm text-gray-400 mt-1">
+              <p className="font-body text-sm text-[#151514]/70 mt-1">
                 Are you sure you want to permanently delete{' '}
                 <span className="text-black font-medium">"{deleteModal.name}"</span>? This action cannot be
                 undone.
@@ -750,7 +750,7 @@ export default function AdminDashboard() {
             <div className="flex items-center justify-end gap-3 pt-3">
               <button
                 onClick={() => setDeleteModal({ open: false, type: '', id: '', name: '' })}
-                className="px-4 py-2 rounded-xl font-body text-sm text-gray-400 hover:text-black hover:bg-white/5 transition-colors"
+                className="px-4 py-2 rounded-xl font-body text-sm text-[#151514]/70 hover:text-[#151514] hover:bg-[#eae5df] transition-colors"
               >
                 Cancel
               </button>
@@ -767,20 +767,20 @@ export default function AdminDashboard() {
 
       {/* MODAL 2: EBOOK DETAILS */}
       {detailsModal.open && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-fadeIn">
-          <div className="w-full max-w-2xl rounded-2xl bg-[#111] border border-white/10 p-6 space-y-6 shadow-2xl max-h-[90vh] overflow-y-auto">
-            <div className="flex items-center justify-between pb-3 border-b border-white/10">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#eae5df] backdrop-blur-sm animate-fadeIn">
+          <div className="w-full max-w-2xl rounded-2xl bg-white border border-[#ded8d0] p-6 space-y-6 shadow-2xl max-h-[90vh] overflow-y-auto">
+            <div className="flex items-center justify-between pb-3 border-b border-[#ded8d0]">
               <h3 className="font-display text-2xl text-black">eBook Details</h3>
               <button
                 onClick={() => setDetailsModal({ open: false, loading: false, data: null })}
-                className="p-1 rounded-lg text-gray-400 hover:text-black hover:bg-white/5 transition-colors"
+                className="p-1 rounded-lg text-[#151514]/70 hover:text-[#151514] hover:bg-[#eae5df] transition-colors"
               >
                 <X className="w-5 h-5" />
               </button>
             </div>
 
             {detailsModal.loading ? (
-              <p className="text-center py-10 text-gray-400 font-body">Loading eBook details...</p>
+              <p className="text-center py-10 text-[#151514]/70 font-body">Loading eBook details...</p>
             ) : detailsModal.data ? (
               <div className="space-y-6 font-body text-sm">
                 <div className="flex flex-col sm:flex-row gap-6">
@@ -788,7 +788,7 @@ export default function AdminDashboard() {
                     <img
                       src={detailsModal.data.coverImage.url}
                       alt={detailsModal.data.title}
-                      className="w-36 h-48 object-cover rounded-xl border border-white/15 bg-black"
+                      className="w-36 h-48 object-cover rounded-xl border border-[#ded8d0] bg-black"
                     />
                   )}
                   <div className="space-y-2 flex-1">
@@ -797,10 +797,10 @@ export default function AdminDashboard() {
                       <span className="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-secondary/15 text-secondary border border-secondary/30">
                         eBook
                       </span>
-                      <span className="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-white/10 text-gray-300">
+                      <span className="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-[#eae5df] text-[#151514]/80">
                         €{Number(detailsModal.data.price).toFixed(2)}
                       </span>
-                      <span className="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-white/10 text-gray-300">
+                      <span className="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-[#eae5df] text-[#151514]/80">
                         Sales: {detailsModal.data.salesCount || 0}
                       </span>
                     </div>
@@ -811,23 +811,23 @@ export default function AdminDashboard() {
                   <h5 className="font-semibold text-black uppercase text-xs tracking-wider mb-1">
                     Description
                   </h5>
-                  <div className="text-gray-300 leading-relaxed bg-white/5 p-4 rounded-xl border border-white/5 max-h-56 overflow-y-auto whitespace-pre-line">
+                  <div className="text-[#151514]/80 leading-relaxed bg-[#eae5df]/40 p-4 rounded-xl border border-[#ded8d0] max-h-56 overflow-y-auto whitespace-pre-line">
                     {detailsModal.data.description}
                   </div>
                 </div>
 
-                <div className="bg-white/5 p-4 rounded-xl border border-white/5 space-y-2">
+                <div className="bg-[#eae5df]/40 p-4 rounded-xl border border-[#ded8d0] space-y-2">
                   <h5 className="font-semibold text-black uppercase text-xs tracking-wider mb-2">
                     Digital File
                   </h5>
-                  <p className="text-gray-400 text-xs">
+                  <p className="text-[#151514]/70 text-xs">
                     Format: <span className="text-black font-mono uppercase">{detailsModal.data.digitalFile?.fileType}</span>
                   </p>
-                  <p className="text-gray-400 text-xs truncate">
+                  <p className="text-[#151514]/70 text-xs truncate">
                     Filename: <span className="text-black font-mono">{detailsModal.data.digitalFile?.filename || 'eBook asset'}</span>
                   </p>
                   {detailsModal.data.digitalFile?.fileSize > 0 && (
-                    <p className="text-gray-400 text-xs">
+                    <p className="text-[#151514]/70 text-xs">
                       Size: <span className="text-black font-mono">{(detailsModal.data.digitalFile.fileSize / (1024 * 1024)).toFixed(2)} MB</span>
                     </p>
                   )}
@@ -850,15 +850,15 @@ export default function AdminDashboard() {
 
       {/* MODAL 3: PUBLISH EBOOK */}
       {publishModal.open && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-fadeIn">
-          <div className="w-full max-w-2xl rounded-2xl bg-[#111] border border-white/10 p-6 space-y-6 shadow-2xl max-h-[90vh] overflow-y-auto">
-            <div className="flex items-center justify-between pb-3 border-b border-white/10">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#eae5df] backdrop-blur-sm animate-fadeIn">
+          <div className="w-full max-w-2xl rounded-2xl bg-white border border-[#ded8d0] p-6 space-y-6 shadow-2xl max-h-[90vh] overflow-y-auto">
+            <div className="flex items-center justify-between pb-3 border-b border-[#ded8d0]">
               <div className="flex items-center gap-2">
                 <h3 className="font-display text-2xl text-black">Publish New eBook</h3>
               </div>
               <button
                 onClick={() => setPublishModal({ open: false, loading: false, error: '' })}
-                className="p-1 rounded-lg text-gray-400 hover:text-black hover:bg-white/5 transition-colors"
+                className="p-1 rounded-lg text-[#151514]/70 hover:text-[#151514] hover:bg-[#eae5df] transition-colors"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -872,7 +872,7 @@ export default function AdminDashboard() {
 
             <form onSubmit={handlePublishSubmit} className="space-y-4 font-body text-sm">
               <div>
-                <label className="block text-gray-300 text-xs uppercase tracking-wider mb-1.5">
+                <label className="block text-[#151514]/80 text-xs uppercase tracking-wider mb-1.5">
                   Title *
                 </label>
                 <input
@@ -881,13 +881,13 @@ export default function AdminDashboard() {
                   placeholder="Mastering Digital Marketing"
                   value={formData.title}
                   onChange={(e) => setFormData({ ...formData, title: e.target.value })}
-                  className="w-full px-4 py-2.5 rounded-xl bg-white/5 border border-white/10 text-black text-sm focus:outline-none focus:border-secondary"
+                  className="w-full px-4 py-2.5 rounded-xl bg-white border border-[#ded8d0] text-black text-sm focus:outline-none focus:border-secondary"
                 />
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-gray-300 text-xs uppercase tracking-wider mb-1.5">
+                  <label className="block text-[#151514]/80 text-xs uppercase tracking-wider mb-1.5">
                     Price (€ EUR) *
                   </label>
                   <input
@@ -898,13 +898,13 @@ export default function AdminDashboard() {
                     placeholder="29.99"
                     value={formData.price}
                     onChange={(e) => setFormData({ ...formData, price: e.target.value })}
-                    className="w-full px-4 py-2.5 rounded-xl bg-white/5 border border-white/10 text-black text-sm focus:outline-none focus:border-secondary"
+                    className="w-full px-4 py-2.5 rounded-xl bg-white border border-[#ded8d0] text-black text-sm focus:outline-none focus:border-secondary"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="block text-gray-300 text-xs uppercase tracking-wider mb-1.5">
+                <label className="block text-[#151514]/80 text-xs uppercase tracking-wider mb-1.5">
                   Description *
                 </label>
                 <textarea
@@ -913,11 +913,11 @@ export default function AdminDashboard() {
                   placeholder="Detailed breakdown of what this product covers..."
                   value={formData.description}
                   onChange={(e) => setFormData({ ...formData, description: e.target.value })}
-                  className="w-full px-4 py-2.5 rounded-xl bg-white/5 border border-white/10 text-black text-sm focus:outline-none focus:border-secondary"
+                  className="w-full px-4 py-2.5 rounded-xl bg-white border border-[#ded8d0] text-black text-sm focus:outline-none focus:border-secondary"
                 />
               </div>
 
-              <div className="p-4 rounded-xl bg-white/5 border border-white/10 space-y-3">
+              <div className="p-4 rounded-xl bg-white border border-[#ded8d0] space-y-3">
                 <h4 className="text-black font-semibold text-xs uppercase tracking-wider">
                   Cover Image File *
                 </h4>
@@ -927,7 +927,7 @@ export default function AdminDashboard() {
                     required
                     accept="image/*"
                     onChange={(e) => setCoverImageFile(e.target.files?.[0] || null)}
-                    className="w-full text-xs text-gray-400 file:mr-3 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-semibold file:bg-secondary/15 file:text-secondary hover:file:bg-secondary/25 cursor-pointer"
+                    className="w-full text-xs text-[#151514]/70 file:mr-3 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-semibold file:bg-secondary/15 file:text-secondary hover:file:bg-secondary/25 cursor-pointer"
                   />
                   {coverImageFile && (
                     <p className="text-xs text-secondary mt-1">Selected: {coverImageFile.name}</p>
@@ -935,7 +935,7 @@ export default function AdminDashboard() {
                 </div>
               </div>
 
-              <div className="p-4 rounded-xl bg-white/5 border border-white/10 space-y-3">
+              <div className="p-4 rounded-xl bg-white border border-[#ded8d0] space-y-3">
                 <h4 className="text-black font-semibold text-xs uppercase tracking-wider">
                   Digital  File*
                 </h4>
@@ -955,7 +955,7 @@ export default function AdminDashboard() {
                           }
                         }
                       }}
-                      className="w-full text-xs text-gray-400 file:mr-3 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-semibold file:bg-secondary/15 file:text-secondary hover:file:bg-secondary/25 cursor-pointer"
+                      className="w-full text-xs text-[#151514]/70 file:mr-3 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-semibold file:bg-secondary/15 file:text-secondary hover:file:bg-secondary/25 cursor-pointer"
                     />
                     {digitalAssetFile && (
                       <p className="text-xs text-secondary mt-1">Selected: {digitalAssetFile.name}</p>
@@ -964,7 +964,7 @@ export default function AdminDashboard() {
                   <select
                     value={formData.fileType}
                     onChange={(e) => setFormData({ ...formData, fileType: e.target.value })}
-                    className="w-full px-3 py-2 rounded-lg bg-[#1a1a1a] border border-white/10 text-black text-xs focus:outline-none focus:border-secondary"
+                    className="w-full px-3 py-2 rounded-lg bg-white border border-[#ded8d0] text-black text-xs focus:outline-none focus:border-secondary"
                   >
                     <option value="pdf">PDF</option>
                     <option value="epub">EPUB</option>
@@ -973,11 +973,11 @@ export default function AdminDashboard() {
                 </div>
               </div>
 
-              <div className="flex items-center justify-end gap-3 pt-4 border-t border-white/10">
+              <div className="flex items-center justify-end gap-3 pt-4 border-t border-[#ded8d0]">
                 <button
                   type="button"
                   onClick={() => setPublishModal({ open: false, loading: false, error: '' })}
-                  className="px-4 py-2.5 rounded-xl font-body text-sm text-gray-400 hover:text-black hover:bg-white/5 transition-colors"
+                  className="px-4 py-2.5 rounded-xl font-body text-sm text-[#151514]/70 hover:text-[#151514] hover:bg-[#eae5df] transition-colors"
                 >
                   Cancel
                 </button>
@@ -996,9 +996,9 @@ export default function AdminDashboard() {
 
       {/* MODAL 3: CONTACT MESSAGE DETAILS */}
       {messageDetailsModal.open && messageDetailsModal.data && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-fadeIn">
-          <div className="w-full max-w-2xl rounded-2xl bg-[#111] border border-white/10 p-6 space-y-6 shadow-2xl max-h-[90vh] overflow-y-auto">
-            <div className="flex items-center justify-between pb-3 border-b border-white/10">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#eae5df] backdrop-blur-sm animate-fadeIn">
+          <div className="w-full max-w-2xl rounded-2xl bg-white border border-[#ded8d0] p-6 space-y-6 shadow-2xl max-h-[90vh] overflow-y-auto">
+            <div className="flex items-center justify-between pb-3 border-b border-[#ded8d0]">
               <div className="flex items-center gap-2">
                 <span className="p-2 rounded-xl bg-secondary/10 border border-secondary/20 text-secondary">
                   <Mail className="w-5 h-5" />
@@ -1007,7 +1007,7 @@ export default function AdminDashboard() {
               </div>
               <button
                 onClick={() => setMessageDetailsModal({ open: false, data: null })}
-                className="p-1 rounded-lg text-gray-400 hover:text-black hover:bg-white/5 transition-colors"
+                className="p-1 rounded-lg text-[#151514]/70 hover:text-[#151514] hover:bg-[#eae5df] transition-colors"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -1015,8 +1015,8 @@ export default function AdminDashboard() {
 
             <div className="space-y-5 font-body text-sm">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div className="p-4 rounded-xl bg-white/5 border border-white/5">
-                  <span className="text-[11px] uppercase tracking-wider text-gray-400 block mb-1">
+                <div className="p-4 rounded-xl bg-[#eae5df]/40 border border-[#ded8d0]">
+                  <span className="text-[11px] uppercase tracking-wider text-[#151514]/70 block mb-1">
                     Sender Name
                   </span>
                   <span className="text-black font-medium text-base">
@@ -1024,8 +1024,8 @@ export default function AdminDashboard() {
                   </span>
                 </div>
 
-                <div className="p-4 rounded-xl bg-white/5 border border-white/5">
-                  <span className="text-[11px] uppercase tracking-wider text-gray-400 block mb-1">
+                <div className="p-4 rounded-xl bg-[#eae5df]/40 border border-[#ded8d0]">
+                  <span className="text-[11px] uppercase tracking-wider text-[#151514]/70 block mb-1">
                     Email Address
                   </span>
                   <a
@@ -1037,8 +1037,8 @@ export default function AdminDashboard() {
                 </div>
               </div>
 
-              <div className="p-4 rounded-xl bg-white/5 border border-white/5">
-                <span className="text-[11px] uppercase tracking-wider text-gray-400 block mb-1">
+              <div className="p-4 rounded-xl bg-[#eae5df]/40 border border-[#ded8d0]">
+                <span className="text-[11px] uppercase tracking-wider text-[#151514]/70 block mb-1">
                   Subject
                 </span>
                 <span className="text-black font-medium text-base">
@@ -1047,15 +1047,15 @@ export default function AdminDashboard() {
               </div>
 
               <div>
-                <span className="text-[11px] uppercase tracking-wider text-gray-400 block mb-2 font-semibold">
+                <span className="text-[11px] uppercase tracking-wider text-[#151514]/70 block mb-2 font-semibold">
                   Full Message
                 </span>
-                <div className="p-4 rounded-xl bg-white/[0.03] border border-white/10 text-gray-200 leading-relaxed whitespace-pre-wrap max-h-60 overflow-y-auto">
+                <div className="p-4 rounded-xl bg-white/[0.03] border border-[#ded8d0] text-gray-200 leading-relaxed whitespace-pre-wrap max-h-60 overflow-y-auto">
                   {messageDetailsModal.data.message}
                 </div>
               </div>
 
-              <div className="flex items-center justify-between text-xs text-gray-500 pt-2 border-t border-white/5">
+              <div className="flex items-center justify-between text-xs text-[#151514]/50 pt-2 border-t border-[#ded8d0]">
                 <span className="flex items-center gap-1.5">
                   <Calendar className="w-4 h-4" />
                   Received:{' '}
@@ -1067,7 +1067,7 @@ export default function AdminDashboard() {
               </div>
             </div>
 
-            <div className="flex items-center justify-between pt-4 border-t border-white/10">
+            <div className="flex items-center justify-between pt-4 border-t border-[#ded8d0]">
               <button
                 type="button"
                 onClick={() => {
@@ -1089,7 +1089,7 @@ export default function AdminDashboard() {
               <button
                 type="button"
                 onClick={() => setMessageDetailsModal({ open: false, data: null })}
-                className="px-5 py-2 rounded-xl font-body text-xs font-semibold bg-white/10 text-black hover:bg-white/20 transition-colors"
+                className="px-5 py-2 rounded-xl font-body text-xs font-semibold bg-[#eae5df] text-black hover:bg-white/20 transition-colors"
               >
                 Close
               </button>

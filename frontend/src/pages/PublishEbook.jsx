@@ -160,7 +160,7 @@ export default function PublishEbook() {
         <div className="flex items-center gap-3">
           <Link
             to="/admin/dashboard"
-            className="p-2.5 rounded-xl bg-white/5 border border-white/10 text-gray-400 hover:text-secondary hover:bg-white/10 transition-colors"
+            className="p-2.5 rounded-xl bg-white/5 border border-[#ded8d0] text-[#151514]/70 hover:text-secondary hover:bg-white/10 transition-colors"
             title="Back to Dashboard"
           >
             <ArrowLeft className="w-5 h-5" />
@@ -176,7 +176,7 @@ export default function PublishEbook() {
 
         <Link
           to="/admin/dashboard"
-          className="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-semibold text-gray-300 bg-white/5 border border-white/10 hover:border-secondary hover:text-black transition-colors"
+          className="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-semibold text-[#151514] bg-white/5 border border-[#ded8d0] hover:border-secondary hover:text-black transition-colors"
         >
           <BookOpen className="w-3.5 h-3.5 text-secondary" />
           <span>View All eBooks</span>
@@ -206,14 +206,14 @@ export default function PublishEbook() {
       {/* Form Container */}
       <form onSubmit={handleSubmit} className="space-y-8 font-body">
         {/* SECTION 1: BASIC DETAILS */}
-        <div className="p-6 sm:p-8 rounded-3xl bg-[#0c0c0c] border border-white/10 space-y-6 shadow-xl">
+        <div className="p-6 sm:p-8 rounded-3xl bg-white/70 hover:bg-white border border-[#ded8d0] space-y-6 shadow-sm transition-all">
           <h2 className="font-display text-xl text-black tracking-wide flex items-center gap-2">
             eBook Details
           </h2>
 
           <div className="grid grid-cols-1 gap-6">
             <div>
-              <label className="block text-xs uppercase tracking-wider text-gray-300 font-semibold mb-2">
+              <label className="block text-xs uppercase tracking-wider text-[#151514] font-semibold mb-2">
                 eBook Title *
               </label>
               <input
@@ -222,12 +222,12 @@ export default function PublishEbook() {
                 placeholder="e.g. Modern Web Architecture with Node.js & React"
                 value={formData.title}
                 onChange={(e) => setFormData({ ...formData, title: e.target.value })}
-                className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-black placeholder-gray-500 text-sm focus:outline-none focus:border-secondary transition-colors"
+                className="w-full px-4 py-3 rounded-xl bg-white border border-[#ded8d0] text-[#151514] placeholder-[#151514]/40 text-sm focus:outline-none focus:border-secondary transition-colors"
               />
             </div>
 
             <div>
-              <label className="block text-xs uppercase tracking-wider text-gray-300 font-semibold mb-2">
+              <label className="block text-xs uppercase tracking-wider text-[#151514] font-semibold mb-2">
                 Price (€ EUR) *
               </label>
               <input
@@ -238,12 +238,12 @@ export default function PublishEbook() {
                 placeholder="19.99"
                 value={formData.price}
                 onChange={(e) => setFormData({ ...formData, price: e.target.value })}
-                className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-black placeholder-gray-500 text-sm focus:outline-none focus:border-secondary transition-colors"
+                className="w-full px-4 py-3 rounded-xl bg-white border border-[#ded8d0] text-[#151514] placeholder-[#151514]/40 text-sm focus:outline-none focus:border-secondary transition-colors"
               />
             </div>
 
             <div>
-              <label className="block text-xs uppercase tracking-wider text-gray-300 font-semibold mb-2">
+              <label className="block text-xs uppercase tracking-wider text-[#151514] font-semibold mb-2">
                 Description *
               </label>
               <textarea
@@ -252,14 +252,14 @@ export default function PublishEbook() {
                 placeholder="Comprehensive summary of what readers will learn, table of contents, and prerequisites..."
                 value={formData.description}
                 onChange={(e) => setFormData({ ...formData, description: e.target.value })}
-                className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-black placeholder-gray-500 text-sm focus:outline-none focus:border-secondary transition-colors"
+                className="w-full px-4 py-3 rounded-xl bg-white border border-[#ded8d0] text-[#151514] placeholder-[#151514]/40 text-sm focus:outline-none focus:border-secondary transition-colors"
               />
             </div>
           </div>
         </div>
 
         {/* SECTION 2: DRAG & DROP FILE UPLOADS */}
-        <div className="p-6 sm:p-8 rounded-3xl bg-[#0c0c0c] border border-white/10 space-y-6 shadow-xl">
+        <div className="p-6 sm:p-8 rounded-3xl bg-white/70 hover:bg-white border border-[#ded8d0] space-y-6 shadow-sm transition-all">
           <h2 className="font-display text-xl text-black tracking-wide flex items-center gap-2">
             File Uploads
           </h2>
@@ -267,9 +267,9 @@ export default function PublishEbook() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* DROP ZONE: COVER IMAGE */}
             <div>
-              <label className="block text-xs uppercase tracking-wider text-gray-300 font-semibold mb-2 flex items-center justify-between">
+              <label className="block text-xs uppercase tracking-wider text-[#151514] font-semibold mb-2 flex items-center justify-between">
                 <span>Cover Image *</span>
-                <span className="text-[10px] text-gray-500 normal-case">PNG, JPG, WEBP (Max 50MB)</span>
+                <span className="text-[10px] text-[#151514]/50 normal-case">PNG, JPG, WEBP (Max 50MB)</span>
               </label>
 
               <input
@@ -288,8 +288,8 @@ export default function PublishEbook() {
                 className={`relative flex flex-col items-center justify-center p-6 sm:p-8 rounded-2xl border-2 border-dashed cursor-pointer transition-all ${isCoverDragging
                   ? 'border-secondary bg-secondary/10 scale-[1.01]'
                   : coverPreview
-                    ? 'border-secondary/40 bg-white/[0.02]'
-                    : 'border-white/15 hover:border-secondary/60 bg-white/[0.01]'
+                    ? 'border-secondary/40 bg-[#eae5df]/40'
+                    : 'border-[#ded8d0] hover:border-secondary/60 bg-white/50'
                   }`}
               >
                 {coverPreview ? (
@@ -297,12 +297,12 @@ export default function PublishEbook() {
                     <img
                       src={coverPreview}
                       alt="Cover Preview"
-                      className="w-32 h-44 object-cover rounded-xl shadow-lg border border-white/15 mb-3"
+                      className="w-32 h-44 object-cover rounded-xl shadow-lg border border-[#ded8d0] mb-3"
                     />
                     <p className="text-xs text-secondary font-medium truncate max-w-xs">
                       {coverImageFile?.name}
                     </p>
-                    <p className="text-[10px] text-gray-400 mt-0.5">
+                    <p className="text-[10px] text-[#151514]/70 mt-0.5">
                       {(coverImageFile?.size / 1024).toFixed(1)} KB • Click or drop to replace
                     </p>
                     <button
@@ -326,7 +326,7 @@ export default function PublishEbook() {
                     <p className="text-sm text-black font-medium text-center">
                       Drag & drop cover image here
                     </p>
-                    <p className="text-xs text-gray-400 text-center mt-1">
+                    <p className="text-xs text-[#151514]/70 text-center mt-1">
                       or <span className="text-secondary font-semibold">browse files</span> from your computer
                     </p>
                   </>
@@ -336,9 +336,9 @@ export default function PublishEbook() {
 
             {/* DROP ZONE: DIGITAL ASSET FILE */}
             <div>
-              <label className="block text-xs uppercase tracking-wider text-gray-300 font-semibold mb-2 flex items-center justify-between">
+              <label className="block text-xs uppercase tracking-wider text-[#151514] font-semibold mb-2 flex items-center justify-between">
                 <span>Digital Asset File *</span>
-                <span className="text-[10px] text-gray-500 normal-case">PDF, EPUB, ZIP (Max 50MB)</span>
+                <span className="text-[10px] text-[#151514]/50 normal-case">PDF, EPUB, ZIP (Max 50MB)</span>
               </label>
 
               <input
@@ -357,8 +357,8 @@ export default function PublishEbook() {
                 className={`relative flex flex-col items-center justify-center p-6 sm:p-8 rounded-2xl border-2 border-dashed cursor-pointer transition-all min-h-[190px] ${isAssetDragging
                   ? 'border-secondary bg-secondary/10 scale-[1.01]'
                   : digitalAssetFile
-                    ? 'border-secondary/40 bg-white/[0.02]'
-                    : 'border-white/15 hover:border-secondary/60 bg-white/[0.01]'
+                    ? 'border-secondary/40 bg-[#eae5df]/40'
+                    : 'border-[#ded8d0] hover:border-secondary/60 bg-white/50'
                   }`}
               >
                 {digitalAssetFile ? (
@@ -373,11 +373,11 @@ export default function PublishEbook() {
                       <span className="uppercase text-[10px] font-bold px-2 py-0.5 rounded bg-secondary/20 text-secondary">
                         {formData.fileType}
                       </span>
-                      <span className="text-[11px] text-gray-400">
+                      <span className="text-[11px] text-[#151514]/70">
                         {(digitalAssetFile.size / (1024 * 1024)).toFixed(2)} MB
                       </span>
                     </div>
-                    <p className="text-[10px] text-gray-500 mt-2">Click or drop to replace file</p>
+                    <p className="text-[10px] text-[#151514]/50 mt-2">Click or drop to replace file</p>
                     <button
                       type="button"
                       onClick={(e) => {
@@ -398,7 +398,7 @@ export default function PublishEbook() {
                     <p className="text-sm text-black font-medium text-center">
                       Drag & drop eBook asset here
                     </p>
-                    <p className="text-xs text-gray-400 text-center mt-1">
+                    <p className="text-xs text-[#151514]/70 text-center mt-1">
                       PDF, EPUB, or ZIP • <span className="text-secondary font-semibold">browse files</span>
                     </p>
                   </>
@@ -413,7 +413,7 @@ export default function PublishEbook() {
         <div className="flex items-center justify-end gap-4 pt-2">
           <Link
             to="/admin/dashboard"
-            className="px-6 py-3 rounded-xl text-sm font-semibold text-gray-400 hover:text-black hover:bg-white/5 transition-colors"
+            className="px-6 py-3 rounded-xl text-sm font-semibold text-[#151514]/70 hover:text-black hover:bg-[#eae5df] transition-colors"
           >
             Cancel
           </Link>

@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import {
   ShieldAlert,
@@ -36,36 +36,32 @@ export default function AccessDenied() {
   const ebookSlug = location.state?.ebookSlug || null;
 
   return (
-    <div className="min-h-[75vh] flex items-center justify-center py-16 px-4 sm:px-6 lg:px-8">
-      <div className="w-full max-w-lg rounded-3xl bg-[#0d0d0d] border border-red-500/20 p-8 sm:p-10 text-center shadow-2xl relative overflow-hidden">
-        {/* Subtle background glow */}
-        <div className="absolute -top-24 -left-24 w-48 h-48 bg-red-500/10 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute -bottom-24 -right-24 w-48 h-48 bg-secondary/5 rounded-full blur-3xl pointer-events-none" />
-
+    <div className="min-h-[75vh] flex items-center justify-center py-16 px-4 sm:px-6 lg:px-8 bg-background text-[#151514]">
+      <div className="w-full max-w-lg rounded-3xl bg-white/70 hover:bg-white border border-[#ded8d0] p-8 sm:p-10 text-center shadow-sm relative overflow-hidden">
         {/* Warning Icon Badge */}
-        <div className="w-20 h-20 rounded-3xl bg-red-500/10 border border-red-500/30 text-red-400 flex items-center justify-center mx-auto mb-6 shadow-lg shadow-red-500/5">
+        <div className="w-20 h-20 rounded-3xl bg-red-500/10 border border-red-500/20 text-red-600 flex items-center justify-center mx-auto mb-6 shadow-sm">
           <ShieldAlert className="w-10 h-10" />
         </div>
 
         {/* Header */}
-        <h1 className="font-display text-3xl sm:text-4xl text-black tracking-wide mb-3">
-          Access <span className="text-red-400">Restricted</span>
+        <h1 className="font-display text-3xl sm:text-4xl text-[#151514] tracking-wide mb-3">
+          Access <span className="text-red-600">Restricted</span>
         </h1>
 
-        <p className="font-body text-gray-300 text-sm sm:text-base leading-relaxed mb-6">
+        <p className="font-body text-[#151514]/75 text-sm sm:text-base leading-relaxed mb-6">
           {customMessage}
         </p>
 
         {ebookTitle && (
-          <div className="mb-6 p-4 rounded-2xl bg-white/[0.03] border border-white/5 text-xs text-gray-400 font-body">
-            Target Asset: <span className="text-black font-medium">{ebookTitle}</span>
+          <div className="mb-6 p-4 rounded-2xl bg-[#eae5df] border border-[#ded8d0] text-xs text-[#151514]/80 font-body">
+            Target Asset: <span className="text-[#151514] font-semibold">{ebookTitle}</span>
           </div>
         )}
 
         {/* Information box */}
-        <div className="p-4 rounded-2xl bg-white/[0.02] border border-white/5 text-left mb-8 space-y-2 text-xs font-body text-gray-400">
+        <div className="p-4 rounded-2xl bg-white border border-[#ded8d0] text-left mb-8 space-y-2 text-xs font-body text-[#151514]/70">
           <div className="flex items-start gap-2">
-            <Lock className="w-4 h-4 text-red-400 flex-shrink-0 mt-0.5" />
+            <Lock className="w-4 h-4 text-red-600 flex-shrink-0 mt-0.5" />
             <span>Digital assets are protected and require a verified, completed purchase.</span>
           </div>
           <div className="flex items-start gap-2">
@@ -79,7 +75,7 @@ export default function AccessDenied() {
           {ebookSlug ? (
             <Link
               to={`/products/${ebookSlug}`}
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-body text-sm font-semibold bg-secondary text-primary hover:bg-[#dd6b35] transition-all shadow-[0_0_15px_rgba(238,128,77,0.3)]"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-body text-sm font-semibold bg-secondary text-primary hover:bg-[#dd6b35] transition-all shadow-sm"
             >
               <ShoppingBag className="w-4 h-4" />
               <span>Purchase to Unlock</span>
@@ -87,7 +83,7 @@ export default function AccessDenied() {
           ) : (
             <Link
               to="/products"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-body text-sm font-semibold bg-secondary text-primary hover:bg-[#dd6b35] transition-all shadow-[0_0_15px_rgba(238,128,77,0.3)]"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-body text-sm font-semibold bg-secondary text-primary hover:bg-[#dd6b35] transition-all shadow-sm"
             >
               <ShoppingBag className="w-4 h-4" />
               <span>Explore Products</span>
@@ -97,7 +93,7 @@ export default function AccessDenied() {
           {!isAuthenticated ? (
             <Link
               to="/login"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-body text-sm font-semibold text-gray-300 bg-white/5 border border-white/10 hover:text-black hover:bg-white/10 transition-colors"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-body text-sm font-semibold text-[#151514] bg-white border border-[#ded8d0] hover:bg-[#eae5df] transition-colors"
             >
               <LogIn className="w-4 h-4" />
               <span>Sign In</span>
@@ -105,7 +101,7 @@ export default function AccessDenied() {
           ) : (
             <Link
               to="/"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-body text-sm font-semibold text-gray-300 bg-white/5 border border-white/10 hover:text-black hover:bg-white/10 transition-colors"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-body text-sm font-semibold text-[#151514] bg-white border border-[#ded8d0] hover:bg-[#eae5df] transition-colors"
             >
               <ArrowLeft className="w-4 h-4" />
               <span>Back Home</span>
