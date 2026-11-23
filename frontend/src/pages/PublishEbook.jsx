@@ -173,14 +173,6 @@ export default function PublishEbook() {
             </div>
           </div>
         </div>
-
-        <Link
-          to="/admin/dashboard"
-          className="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-semibold text-[#151514] bg-white/5 border border-[#ded8d0] hover:border-secondary hover:text-black transition-colors"
-        >
-          <BookOpen className="w-3.5 h-3.5 text-secondary" />
-          <span>View All eBooks</span>
-        </Link>
       </div>
 
       {/* Notifications */}
