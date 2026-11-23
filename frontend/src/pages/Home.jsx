@@ -1,4 +1,5 @@
-import { motion } from "motion/react";
+import { useState } from "react";
+import { motion, AnimatePresence } from "motion/react";
 import {
   ArrowUpRight,
   ArrowRight,
@@ -8,7 +9,9 @@ import {
   Globe,
   Palette,
   MousePointerClick,
-  Code
+  Code,
+  Plus,
+  Minus
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import ProcessSection from "@/components/ProcessSection";
@@ -53,7 +56,41 @@ const servicesList = [
   }
 ];
 
+const faqs = [
+  {
+    question: "What makes you different from other agencies?",
+    answer:
+      "Unlike traditional agencies that separate engineering from creative strategy or rely on bloated layers of account managers, we work as a cohesive product engineering and growth collective. We combine high-performance software engineering, computational SEO, and high-converting performance marketing under one roof—ensuring rapid deployments, measurable business metrics, and zero communication friction."
+  },
+  {
+    question: "Do you work with startups or established enterprises?",
+    answer:
+      "We partner with both. For high-growth startups, we build agile MVPs, high-converting eCommerce storefronts, and initial customer acquisition engines. For established enterprises, we engineer scalable cloud architectures, modernize legacy digital stacks, and execute large-scale omni-channel performance marketing campaigns designed for sustained market dominance."
+  },
+  {
+    question: "What is your typical process?",
+    answer:
+      "Our process is structured, transparent, and iterative: First, we conduct an in-depth Discovery & Technical Audit to evaluate your architecture, target audience, and bottlenecks. Next, we develop a Strategic Blueprint and clickable design prototypes. From there, we execute in agile development sprints with live milestone reviews. Finally, post-launch, we provide continuous telemetry, conversion rate optimization, and ongoing operational support."
+  },
+  {
+    question: "How long does a typical project take?",
+    answer:
+      "Timelines vary depending on project scope. A bespoke high-converting website or eCommerce store typically takes 2 to 4 weeks, while complex full-stack web applications or SaaS platforms range between 6 to 12 weeks. We emphasize agile shipping so you start capturing value well before final deployment."
+  },
+  {
+    question: "How do you handle ongoing support and maintenance?",
+    answer:
+      "We treat client engagements as long-term technical partnerships. After launch, we provide ongoing monitoring, security patching, core web vitals optimization, and dedicated retainers for iterative feature rollouts and continuous marketing campaign tuning."
+  }
+];
+
 export default function Home() {
+  const [openFaq, setOpenFaq] = useState(null);
+
+  const toggleFaq = (index) => {
+    setOpenFaq((prev) => (prev === index ? null : index));
+  };
+
   return (
     <div className="relative overflow-hidden bg-background select-none">
 
@@ -179,6 +216,100 @@ export default function Home() {
 
       {/* Process Section */}
       <ProcessSection />
+
+      {/* FAQs Section (At the very bottom of the homepage) */}
+      <section className="relative z-10 w-full bg-[#f4f0eb] border-t border-[#e2dcd5] py-20 lg:py-28 px-4 sm:px-6 lg:px-12 text-[#151514]">
+        <div className="max-w-5xl mx-auto">
+          {/* Header */}
+          <div className="flex flex-col items-center text-center gap-4 mb-14 lg:mb-16">
+            <div className="flex items-center gap-3">
+              <span className="text-[11px] sm:text-xs font-bold tracking-[0.2em] uppercase text-[#151514]">
+                FREQUENTLY ASKED QUESTIONS
+              </span>
+              <div className="w-8 h-[1px] bg-[#151514]/40" />
+            </div>
+
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold font-display uppercase tracking-[0.015em] leading-[0.92]">
+              Got Questions? We Have Answers.
+            </h2>
+
+            <p className="font-body text-[#151514]/75 text-sm sm:text-base max-w-xl leading-relaxed">
+              Everything you need to know about partnering with TechyTech, our delivery frameworks, and what to expect.
+            </p>
+          </div>
+
+          {/* Accordion List */}
+          <div className="space-y-4">
+            {faqs.map((faq, index) => {
+              const isOpen = openFaq === index;
+              return (
+                <div
+                  key={index}
+                  className="rounded-2xl border border-[#ded8d0] bg-white/70 hover:bg-white transition-all duration-300 overflow-hidden shadow-sm"
+                >
+                  <button
+                    onClick={() => toggleFaq(index)}
+                    className="w-full py-5 sm:py-6 px-6 sm:px-8 flex items-center justify-between text-left gap-4 cursor-pointer focus:outline-none"
+                    aria-expanded={isOpen}
+                  >
+                    <span className="font-body font-bold text-base sm:text-lg text-[#151514] leading-snug">
+                      {faq.question}
+                    </span>
+                    <span
+                      className={`w-9 h-9 rounded-full flex items-center justify-center shrink-0 border transition-all duration-300 ${
+                        isOpen
+                          ? "bg-secondary text-primary border-secondary"
+                          : "bg-[#151514]/5 text-[#151514] border-[#ded8d0] hover:border-secondary/50"
+                      }`}
+                    >
+                      {isOpen ? (
+                        <Minus className="w-4 h-4 stroke-[2.2]" />
+                      ) : (
+                        <Plus className="w-4 h-4 stroke-[2.2]" />
+                      )}
+                    </span>
+                  </button>
+
+                  <AnimatePresence initial={false}>
+                    {isOpen && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                        className="overflow-hidden"
+                      >
+                        <div className="px-6 sm:px-8 pb-6 pt-1 text-sm sm:text-base font-body text-[#151514]/75 leading-relaxed border-t border-[#ded8d0]/60">
+                          {faq.answer}
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              );
+            })}
+          </div>
+
+          {/* Still have questions CTA strip */}
+          <div className="mt-14 p-8 rounded-2xl bg-white/80 border border-[#ded8d0] flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left">
+            <div>
+              <h3 className="font-display text-2xl text-[#151514] uppercase tracking-wide">
+                Have a different question in mind?
+              </h3>
+              <p className="font-body text-xs sm:text-sm text-[#151514]/70 mt-1">
+                Reach out to our engineering and strategy team directly.
+              </p>
+            </div>
+            <Link
+              to="/contact"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#151514] text-[#f4f0eb] hover:bg-secondary hover:text-primary transition-all duration-300 font-body text-xs sm:text-sm font-semibold shadow-sm cursor-pointer shrink-0"
+            >
+              <span>Get in Touch</span>
+              <ArrowUpRight className="w-4 h-4" />
+            </Link>
+          </div>
+        </div>
+      </section>
 
     </div>
   );

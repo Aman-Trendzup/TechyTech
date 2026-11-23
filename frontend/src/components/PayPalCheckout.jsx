@@ -170,13 +170,13 @@ export default function PayPalCheckout({
     const purchaseList = completedOrder.items?.length ? completedOrder.items : items;
 
     return (
-      <div className="p-6 rounded-3xl border border-secondary/30 text-center space-y-4 animate-fadeIn">
+      <div className="p-6 rounded-3xl text-center space-y-4 animate-fadeIn">
         <div className="w-14 h-14 rounded-full bg-secondary/20 text-secondary flex items-center justify-center mx-auto">
           <CheckCircle2 className="w-8 h-8" />
         </div>
         <div>
           <h4 className="font-display text-2xl text-black">Payment Successful!</h4>
-          <p className="font-body text-xs text-gray-300 mt-1">
+          <p className="font-body text-xs text-primary mt-1">
             Transaction ID: <span className="font-mono text-secondary">{completedOrder.paypalDetails?.captureId || completedOrder.paypalDetails?.orderId || completedOrder._id}</span>
           </p>
         </div>
