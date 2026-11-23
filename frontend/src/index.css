@@ -1,0 +1,83 @@
+﻿@import "tailwindcss";
+
+@theme {
+  --color-primary: #151514;
+  --color-secondary: #EE804D;
+  --color-accent: #EE804D;
+
+  /* Background colors */
+  --color-background: #F4F0EB;
+  --color-surface: #EAE5DF;
+
+  /* Text colors */
+  --color-text: #151514;
+  --color-text-muted: #7C7B7A;
+
+  /* Borders */
+  --color-border: #D9D3CD;
+
+  --font-display: "Anton", sans-serif;
+  --font-body: "Space Mono", sans-serif;
+
+  /* Magic UI Animations */
+  --animate-marquee: marquee var(--duration, 30s) linear infinite;
+  --animate-marquee-vertical: marquee-vertical var(--duration, 30s) linear infinite;
+  --animate-shimmer: shimmer 2s linear infinite;
+  --animate-pulse: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  --animate-border-beam: border-beam calc(var(--duration)*1s) infinite linear;
+
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+
+    to {
+      transform: translateX(calc(-100% - var(--gap, 1rem)));
+    }
+  }
+
+  @keyframes marquee-vertical {
+    from {
+      transform: translateY(0);
+    }
+
+    to {
+      transform: translateY(calc(-100% - var(--gap, 1rem)));
+    }
+  }
+
+  @keyframes shimmer {
+    from {
+      background-position: 0 0;
+    }
+
+    to {
+      background-position: -200% 0;
+    }
+  }
+
+  @keyframes border-beam {
+    100% {
+      offset-distance: 100%;
+    }
+  }
+}
+
+
+@layer base {
+
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 1000px #171717 inset !important;
+    /* Match your dark bg hex */
+    -webkit-text-fill-color: #000000 !important;
+    caret-color: primary !important;
+    transition: background-color 5000s ease-in-out 0s;
+  }
+}
+
+/* #3df2e0 */
+
+/* primary-#020202 */
