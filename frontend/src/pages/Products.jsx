@@ -95,7 +95,7 @@ export default function Products() {
               ))}
             </div>
           ) : ebooks.length === 0 ? (
-            <div className="text-center py-24 rounded-2xl bg-white/50 border border-[#ded8d0] p-8 max-w-xl mx-auto">
+            <div className="text-center py-24 rounded-2xl p-8 max-w-xl mx-auto">
               <h3 className="font-display text-3xl text-[#151514] uppercase mb-2 tracking-wide">
                 No Products Found
               </h3>
