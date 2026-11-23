@@ -15,7 +15,7 @@ import {
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import ProcessSection from "@/components/ProcessSection";
-import heroBg from "@/assets/Techytech_hero.webp";
+import heroBg from "@/assets/techytech_hero.webp";
 
 const servicesList = [
   {

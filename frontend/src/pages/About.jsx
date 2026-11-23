@@ -19,16 +19,19 @@ import { NumberTicker } from "@/components/magicui/number-ticker";
 const marketplaces = [
   {
     name: "CopeCart",
+    color: "#4d88ff",
     link: "https://copecart.com",
     tagline: "High-conversion checkout & EU compliance infrastructure",
   },
   {
     name: "Digistore24",
+    color: "#28d17c",
     link: "https://digistore24.com",
     tagline: "Automated affiliate network & global sales processing",
   },
   {
     name: "ClickBank",
+    color: "#ff7a29",
     link: "https://clickbank.com",
     tagline: "Premier digital marketplace with worldwide scale and distribution",
   },
@@ -215,7 +218,10 @@ export default function About() {
                 >
                   <div className="space-y-1">
                     <div className="flex items-center gap-3">
-                      <span className="font-display text-2xl sm:text-3xl font-bold text-[#151514] group-hover:text-secondary transition-colors">
+                      <span
+                        className="font-display text-2xl sm:text-3xl font-bold transition-opacity hover:opacity-85 tracking-wider"
+                        style={{ color: market.color }}
+                      >
                         {market.name}
                       </span>
                     </div>
