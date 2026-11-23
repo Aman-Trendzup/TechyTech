@@ -134,7 +134,7 @@ export default function MyPurchases() {
       )}
 
       {purchasedItems.length === 0 ? (
-        <div className="py-16 px-4 rounded-3xl bg-[#0c0c0c] border border-white/10 text-center max-w-2xl mx-auto space-y-5">
+        <div className="py-16 px-4 rounded-3xl bg-background border border-white/10 text-center max-w-2xl mx-auto space-y-5">
           <div className="w-16 h-16 rounded-3xl bg-secondary/10 border border-secondary/20 text-secondary flex items-center justify-center mx-auto">
             <ShoppingBag className="w-8 h-8" />
           </div>
